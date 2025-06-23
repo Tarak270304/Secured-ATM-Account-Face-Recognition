@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+{% block header %}Register New User{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+    </div>
+    <div class="mb-3">
+        <label for="account_number" class="form-label">Account Number</label>
+        <input type="text" class="form-control" name="account_number" placeholder="Enter your account number" required>
+    </div>
+    <div class="mb-3">
+        <label for="pin" class="form-label">PIN</label>
+        <input type="password" class="form-control" name="pin" placeholder="Choose a secure 4-digit PIN" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+    <a href="{{ url_for('index') }}" class="btn btn-link w-100 mt-2">Back to Home</a>
+</form>
+{% endblock %}

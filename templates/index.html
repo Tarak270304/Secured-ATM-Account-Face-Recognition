@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Secured ATM{% endblock %}
+{% block header %}Welcome to SecureATM{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="d-grid gap-3 col-6 mx-auto">
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Register User</a>
+        <a href="{{ url_for('train') }}" class="btn btn-secondary btn-lg">Train Model</a>
+        <a href="{{ url_for('login') }}" class="btn btn-success btn-lg">Start ATM</a>
+        <a href="{{ url_for('delete_user_route') }}" class="btn btn-danger btn-lg">Delete User</a>
+    </div>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secured ATM - Home</title>
+</head>
+<body>
+    <h1>Welcome to Secured ATM</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <a href="{{ url_for('register') }}">Register User</a><br>
+    <a href="{{ url_for('train') }}">Train Model</a><br>
+    <a href="{{ url_for('login') }}">Start ATM</a>
+    <a href="{{ url_for('delete_user_route') }}">Delete User</a>
+</body>
+</html>

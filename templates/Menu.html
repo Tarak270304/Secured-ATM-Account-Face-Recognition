@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}ATM Menu{% endblock %}
+{% block header %}Welcome, {{ user }}| Account No: {{ account_number }}{% endblock %}
+
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{{ url_for('balance') }}">Check Balance</a></li>
+        <li class="list-group-item"><a href="{{ url_for('withdraw') }}">Withdraw</a></li>
+        <li class="list-group-item"><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM Menu</title>
+</head>
+<body>
+    <h2>Hello {{ user }}</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        <li><a href="{{ url_for('balance') }}">Check Balance</a></li>
+        <li><a href="{{ url_for('withdraw') }}">Withdraw</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+</body>
+</html>

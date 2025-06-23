@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Secured ATM{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CDN for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f1f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #004080;
+        }
+        .navbar-brand, .nav-link, .navbar-text {
+            color: #fff !important;
+        }
+        .container {
+            margin-top: 60px;
+            max-width: 500px;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">💳 SecureATM</a>
+        {% if session.get('user') and request.endpoint != 'index' %}
+
+            <span class="navbar-text ms-auto">
+                Welcome, {{ session['user'] }} |
+                <a class="nav-link d-inline p-0" href="{{ url_for('logout') }}">Logout</a>
+            </span>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="text-center mb-4">{% block header %}{% endblock %}</h2>
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <p>&copy; 2025 SecureATM. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS for components (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

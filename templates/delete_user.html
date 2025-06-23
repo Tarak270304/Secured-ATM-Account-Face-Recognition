@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Delete User{% endblock %}
+{% block header %}Delete a User{% endblock %}
+
+{% block content %}
+<form method="POST" class="mx-auto p-4 shadow rounded bg-white" style="max-width: 500px;">
+    <div class="mb-3">
+        <label for="name" class="form-label">User Name</label>
+        <input type="text" class="form-control" name="name" required>
+    </div>
+    <button type="submit" class="btn btn-danger w-100">Delete User</button>
+    <a href="{{ url_for('index') }}" class="btn btn-link w-100 mt-2">Back to Home</a>
+</form>
+{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete User</title>
+</head>
+<body>
+    <h2>Delete User</h2>
+    <form method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" required><br><br>
+        <input type="submit" value="Delete User">
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
