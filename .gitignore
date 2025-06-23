@@ -1,0 +1,26 @@
+# Ignore virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# IDE/editor config
+.vscode/
+*.swp
+
+# MacOS & Windows system files
+.DS_Store
+Thumbs.db
+
+# Ignore model and numpy binaries if not needed
+*.npy
+*.h5
+*.keras
+
+# Ignore large datasets or weights if any
+*.zip
+*.tar
+*.tar.gz
+*.pkl
